@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Color Generator</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        .color-generator {
+            margin-top: 300px;
+        }
+
+        #color-code {
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        input[type='button'] {
+            background-color: #000;
+            color: #fff;
+            font-size: 20px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: 0.5s ease-in-out;
+            cursor: pointer;
+        }
+
+        input[type='button']:hover {
+            transform: scale(1.1)
+        }
+
+        input[type='button']:active {
+            transform: scale(.9)
+        }
+    </style>
+</head>
+
+<body>
+    <div class="color-generator">
+        <h4 id="color-code"></h4>
+        <input type="button" value="Generate" id="generateButton">
+    </div>
+
+    <script>
+        document.getElementById('generateButton').addEventListener('click', () => {
+            let color = "#";
+            let valid = "0123456789ABCDEF";
+            for (let i = 0; i < 6; i++) {
+                let randomHexa = Math.floor(Math.random() * 16);
+                color = color + valid[randomHexa];
+            }
+            document.getElementById('color-code').innerHTML = color;
+            document.body.style.backgroundColor = color;
+        });
+    </script>
+</body>
+
+</html>ok
